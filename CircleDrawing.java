@@ -16,6 +16,7 @@ class CircleDrawing extends JFrame implements ActionListener{
                    lbCenterX2, lbCenterY2, lbRadius2;
     private JTextField tfCenterX1, tfCenterY1, tfRadius1,tfCenterX2, tfCenterY2, tfRadius2;
     private double centerX1 = 0, centerY1 = 0, centerX2 = 0, centerY2 = 0, radius1 = 0, radius2 = 0; 
+
     public static void main(String[] args) {
         
         CircleDrawing cd = new CircleDrawing();
@@ -43,6 +44,9 @@ class CircleDrawing extends JFrame implements ActionListener{
         lbTitle = new JLabel("Two circles intersect ?");
         p1.add(lbTitle);
         frame.getContentPane().add(p1);
+
+
+        // panel 2 (circle)
 
 
        // panel 3
@@ -105,6 +109,9 @@ class CircleDrawing extends JFrame implements ActionListener{
 
        p4.setBorder(border);
        frame.getContentPane().add(p4);
+
+
+       // panel 5 (button)
         
     }
 }
