@@ -47,7 +47,9 @@ class CircleDrawing extends JFrame implements ActionListener{
 
 
         // panel 2 (circle)
-
+        p2 = new JPanel();
+        p2.setBounds(10, 33, 466, 169);
+        frame.getContentPane().add(p2);
 
         // panel 3
         p3 = new JPanel();
