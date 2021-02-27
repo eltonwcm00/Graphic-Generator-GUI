@@ -94,26 +94,27 @@ class CircleDrawing extends JFrame implements ActionListener {
                     p4.add(p4subp4);
     
         
+        // flowlayout to contain p3 and p4
         FlowLayout fLayout = new FlowLayout();
-        flowLayoutPanel = new JPanel();
-        flowLayoutPanel.setLayout(fLayout);
-        flowLayoutPanel.add(p3);
-        flowLayoutPanel.add(p4);
+            flowLayoutPanel = new JPanel();
+                flowLayoutPanel.setLayout(fLayout);
+                    flowLayoutPanel.add(p3);
+                    flowLayoutPanel.add(p4);
 
         // panel 5
         p5 = new JPanel();
-        bt = new JButton("Redraw Circle");
+            bt = new JButton("Redraw Circle");
         JPanel buttonPane = new JPanel();
-        buttonPane.add(bt);
-        p5.setLayout( new BorderLayout());
-        p5.add(flowLayoutPanel, BorderLayout.CENTER);
-        p5.add(buttonPane, BorderLayout.SOUTH);
+            buttonPane.add(bt);
+            p5.setLayout( new BorderLayout());
+                p5.add(flowLayoutPanel, BorderLayout.CENTER);
+                p5.add(buttonPane, BorderLayout.SOUTH);
         
         // frame panel
         setLayout(new BorderLayout());
-        add(p1, BorderLayout.NORTH);
-        add(new DisplayShape(), BorderLayout.CENTER);
-        add(p5, BorderLayout.SOUTH);
+            add(p1, BorderLayout.NORTH);
+            add(new DisplayShape(), BorderLayout.CENTER);
+            add(p5, BorderLayout.SOUTH);
 
         // actionListerner
         bt.addActionListener(this);
@@ -123,7 +124,6 @@ class CircleDrawing extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
           
             if(e.getSource() == bt) {
-
                 click = 1;
                 // System.out.println("hello");
 
@@ -140,8 +140,10 @@ class CircleDrawing extends JFrame implements ActionListener {
             
             if(click == 1){
                 
-                g.setColor(Color.ORANGE);
-                g.fillArc(272,50,190,190,0,290);
+                int[] x = {400,500,560,560,500,400,340,340};
+                int[] y = {60,60,120,180,240,240,180,120};
+                g.setColor(Color.BLUE);
+                g.fillPolygon(x,y,x.length);
     
             }
         }
