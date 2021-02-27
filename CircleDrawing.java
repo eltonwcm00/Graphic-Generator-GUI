@@ -14,8 +14,9 @@ class CircleDrawing extends JFrame implements ActionListener {
     private JLabel lbTitle, lbTitleP3, lbTitleP4, lbCenterX1, lbCenterY1, lbRadius1,
                    lbCenterX2, lbCenterY2, lbRadius2;
     private JTextField tfCenterX1, tfCenterY1, tfRadius1,tfCenterX2, tfCenterY2, tfRadius2;
+    private int click;
     private double centerX1 = 0, centerY1 = 0, centerX2 = 0, centerY2 = 0, radius1 = 0, radius2 = 0; 
-    
+
     public static void main(String[] args) {
        
         CircleDrawing cd = new CircleDrawing();
@@ -110,6 +111,7 @@ class CircleDrawing extends JFrame implements ActionListener {
         // frame panel
         setLayout(new BorderLayout());
         add(p1, BorderLayout.NORTH);
+        add(p2, BorderLayout.CENTER);
         add(p5, BorderLayout.SOUTH);
 
         // actionListerner
@@ -118,7 +120,13 @@ class CircleDrawing extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
+          
+            if(e.getSource() == bt) {
 
+                System.out.println("hello");
+
+            }
+                    
+            repaint(); 
     }
 }
