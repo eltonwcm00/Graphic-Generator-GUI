@@ -39,7 +39,8 @@ class CircleDrawing extends JFrame implements ActionListener {
 
 
         // panel 2
-        p2 = new JPanel();
+        //p2 = new JPanel();
+        //p2.add(new DisplayShape());
         /********** call paintComponent() ***********/
 
         // panel 3
@@ -111,7 +112,7 @@ class CircleDrawing extends JFrame implements ActionListener {
         // frame panel
         setLayout(new BorderLayout());
         add(p1, BorderLayout.NORTH);
-        add(p2, BorderLayout.CENTER);
+        add(new DisplayShape(), BorderLayout.CENTER);
         add(p5, BorderLayout.SOUTH);
 
         // actionListerner
@@ -123,10 +124,28 @@ class CircleDrawing extends JFrame implements ActionListener {
           
             if(e.getSource() == bt) {
 
-                System.out.println("hello");
+                click = 1;
+                // System.out.println("hello");
 
             }
                     
             repaint(); 
     }
+
+    class DisplayShape extends JPanel {
+
+        public void paintComponent(Graphics g) {
+            
+            super.paintComponent(g);
+            
+            if(click == 1){
+                
+                g.setColor(Color.ORANGE);
+                g.fillArc(272,50,190,190,0,290);
+    
+            }
+        }
+    }
 }
+
+
