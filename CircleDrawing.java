@@ -39,8 +39,6 @@ class CircleDrawing extends JFrame implements ActionListener {
 
 
         // panel 2
-        //p2 = new JPanel();
-        //p2.add(new DisplayShape());
         /********** call paintComponent() ***********/
 
         // panel 3
@@ -101,6 +99,7 @@ class CircleDrawing extends JFrame implements ActionListener {
                     flowLayoutPanel.add(p3);
                     flowLayoutPanel.add(p4);
 
+
         // panel 5
         p5 = new JPanel();
             bt = new JButton("Redraw Circle");
@@ -110,13 +109,13 @@ class CircleDrawing extends JFrame implements ActionListener {
                 p5.add(flowLayoutPanel, BorderLayout.CENTER);
                 p5.add(buttonPane, BorderLayout.SOUTH);
         
+
         // frame panel
         setLayout(new BorderLayout());
             add(p1, BorderLayout.NORTH);
-            //add(new DisplayShape(centerX1, centerY1, radius1, centerX2, centerY2, radius2), BorderLayout.CENTER);
-           // add(new DisplayShape(100, 20, 20, 30, 40, 40), BorderLayout.CENTER);
             add(p5, BorderLayout.SOUTH);
 
+            
         // actionListerner
         bt.addActionListener(this);
     }
@@ -135,11 +134,6 @@ class CircleDrawing extends JFrame implements ActionListener {
             radius2 = Integer.parseInt(tfRadius2.getText());
 
             repaint();
-
-            //p2 = new JPanel();
-            //p2.add(new DisplayShape(centerX1, centerY1, radius1, centerX2, centerY2, radius2),BorderLayout.CENTER);
-            // p2.add(new DisplayShape(10, 20,30, 30, 40, 40),BorderLayout.CENTER);
-            //add(new DisplayShape(100, 20, 20, 30, 40, 40), BorderLayout.CENTER);
         }    
     }
 
@@ -154,33 +148,3 @@ class CircleDrawing extends JFrame implements ActionListener {
         g.drawOval(centerX2 , centerY2 , diameterCircle2, diameterCircle2);
     }
 }
-
-// class DisplayShape extends JPanel {
-
-//     private int centerX1, centerY1, radius1, centerX2, centerY2, radius2;
-
-//     public DisplayShape(int centerX1, int centerY1, int radius1, 
-//                         int centerX2, int centerY2, int radius2) {
-                            
-//                             this.centerX1 = centerX1;
-//                             this.centerY1 = centerY1;
-//                             this.radius1 = radius1;
-//                             this.centerX2 = centerX2;
-//                             this.centerY2 = centerY2;
-//                             this.radius2 = radius2;
-//                         }
-                        
-//     public void paint(Graphics g) {
-        
-//         super.paint(g);
-            
-//         // int[] x = {400,500,560,560,500,400,340,340};
-//         // int[] y = {60,60,120,180,240,240,180,120};
-//         //g.setColor(Color.BLUE);
-//         int diameterCircle1 = radius1 * 2;
-//         int diameterCircle2 = radius2 * 2;
-        
-//         g.drawOval(centerX1 - radius1, centerY1 - radius1, diameterCircle1, diameterCircle1);
-//         g.drawOval(centerX2 - radius2, centerY2 - radius2, diameterCircle2, diameterCircle2);
-//     }
-// }

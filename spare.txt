@@ -402,7 +402,12 @@ class CircleDrawing extends JFrame implements ActionListener{
 
 
 
-
+//add(new DisplayShape(centerX1, centerY1, radius1, centerX2, centerY2, radius2), BorderLayout.CENTER);
+// add(new DisplayShape(100, 20, 20, 30, 40, 40), BorderLayout.CENTER);
+//p2 = new JPanel();
+//p2.add(new DisplayShape(centerX1, centerY1, radius1, centerX2, centerY2, radius2),BorderLayout.CENTER);
+// p2.add(new DisplayShape(10, 20,30, 30, 40, 40),BorderLayout.CENTER);
+//add(new DisplayShape(100, 20, 20, 30, 40, 40), BorderLayout.CENTER);
 // class DisplayShape extends JPanel {
 
 //     private int centerX1, centerY1, radius1, centerX2, centerY2, radius2;
