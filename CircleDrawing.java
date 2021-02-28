@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+@SuppressWarnings("serial")
 class CircleDrawing extends JFrame implements ActionListener {
     
     
@@ -136,12 +137,16 @@ class CircleDrawing extends JFrame implements ActionListener {
 
             intersect = circleIntersection(centerX1, centerY1, centerX2, centerY2, radius1, radius2);
 
+            String interLabel;
+
             if(intersect == 1 || intersect == 2 ) {
-                System.out.println ( "Circle do not intersect"); 
+                interLabel = "No";
 
             } else {
-                System.out.println ( "Circle intersect each other");
+                interLabel = "Yes";
             }
+
+            lbTitle.setText("Two circles intersect ? "+interLabel);
 
             repaint();    
         }    
