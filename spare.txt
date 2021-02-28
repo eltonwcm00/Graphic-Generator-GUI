@@ -394,3 +394,41 @@ class CircleDrawing extends JFrame implements ActionListener{
         add( p3  );
         add( p4 );
 
+
+
+
+
+
+
+
+
+
+// class DisplayShape extends JPanel {
+
+//     private int centerX1, centerY1, radius1, centerX2, centerY2, radius2;
+
+//     public DisplayShape(int centerX1, int centerY1, int radius1, 
+//                         int centerX2, int centerY2, int radius2) {
+                            
+//                             this.centerX1 = centerX1;
+//                             this.centerY1 = centerY1;
+//                             this.radius1 = radius1;
+//                             this.centerX2 = centerX2;
+//                             this.centerY2 = centerY2;
+//                             this.radius2 = radius2;
+//                         }
+                        
+//     public void paint(Graphics g) {
+        
+//         super.paint(g);
+            
+//         // int[] x = {400,500,560,560,500,400,340,340};
+//         // int[] y = {60,60,120,180,240,240,180,120};
+//         //g.setColor(Color.BLUE);
+//         int diameterCircle1 = radius1 * 2;
+//         int diameterCircle2 = radius2 * 2;
+        
+//         g.drawOval(centerX1 - radius1, centerY1 - radius1, diameterCircle1, diameterCircle1);
+//         g.drawOval(centerX2 - radius2, centerY2 - radius2, diameterCircle2, diameterCircle2);
+//     }
+// }

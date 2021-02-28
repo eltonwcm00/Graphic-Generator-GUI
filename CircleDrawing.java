@@ -8,24 +8,24 @@ import java.awt.event.ActionListener;
 
 class CircleDrawing extends JFrame implements ActionListener {
     
+    
     private JButton bt;
     private JPanel p1, p2, p3, p4, p5, flowLayoutPanel;
     private JPanel p3subp, p3subp2, p3subp3, p3subp4, p4subp1, p4subp2, p4subp3, p4subp4;
     private JLabel lbTitle, lbTitleP3, lbTitleP4, lbCenterX1, lbCenterY1, lbRadius1,
                    lbCenterX2, lbCenterY2, lbRadius2;
     private JTextField tfCenterX1, tfCenterY1, tfRadius1,tfCenterX2, tfCenterY2, tfRadius2;
-    private int click;
-    private double centerX1 = 0, centerY1 = 0, centerX2 = 0, centerY2 = 0, radius1 = 0, radius2 = 0; 
+    private int centerX1, centerY1, centerX2, centerY2, radius1, radius2; 
 
     public static void main(String[] args) {
        
         CircleDrawing cd = new CircleDrawing();
         cd.getContentPane();
-        cd.setSize(500,360);
+        cd.setSize(400,360);
         cd.setVisible(true);
         cd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         cd.setTitle("Circle Drawing");
-        // cd.pack();
+        //cd.pack();
     } 
 
     public CircleDrawing() {
@@ -113,41 +113,74 @@ class CircleDrawing extends JFrame implements ActionListener {
         // frame panel
         setLayout(new BorderLayout());
             add(p1, BorderLayout.NORTH);
-            add(new DisplayShape(), BorderLayout.CENTER);
+            //add(new DisplayShape(centerX1, centerY1, radius1, centerX2, centerY2, radius2), BorderLayout.CENTER);
+           // add(new DisplayShape(100, 20, 20, 30, 40, 40), BorderLayout.CENTER);
             add(p5, BorderLayout.SOUTH);
 
         // actionListerner
         bt.addActionListener(this);
     }
 
-    @Override
+
     public void actionPerformed(ActionEvent e) {
           
-            if(e.getSource() == bt) {
-                click = 1;
-                // System.out.println("hello");
+        if(e.getSource() == bt) {
 
-            }
-                    
-            repaint(); 
+            centerX1 = Integer.parseInt(tfCenterX1.getText());
+            centerY1 = Integer.parseInt(tfCenterY1.getText());
+            radius1 = Integer.parseInt(tfRadius1.getText());
+
+            centerX2 = Integer.parseInt(tfCenterX2.getText());
+            centerY2 = Integer.parseInt(tfCenterY2.getText());
+            radius2 = Integer.parseInt(tfRadius2.getText());
+
+            repaint();
+
+            //p2 = new JPanel();
+            //p2.add(new DisplayShape(centerX1, centerY1, radius1, centerX2, centerY2, radius2),BorderLayout.CENTER);
+            // p2.add(new DisplayShape(10, 20,30, 30, 40, 40),BorderLayout.CENTER);
+            //add(new DisplayShape(100, 20, 20, 30, 40, 40), BorderLayout.CENTER);
+        }    
     }
 
-    class DisplayShape extends JPanel {
+    public void paint(Graphics g) {
+        
+        super.paint(g);
 
-        public void paintComponent(Graphics g) {
-            
-            super.paintComponent(g);
-            
-            if(click == 1){
-                
-                int[] x = {400,500,560,560,500,400,340,340};
-                int[] y = {60,60,120,180,240,240,180,120};
-                g.setColor(Color.BLUE);
-                g.fillPolygon(x,y,x.length);
-    
-            }
-        }
+        int diameterCircle1 = radius1 * 2;
+        int diameterCircle2 = radius2 * 2;
+
+        g.drawOval(centerX1 , centerY1 , diameterCircle1, diameterCircle1);
+        g.drawOval(centerX2 , centerY2 , diameterCircle2, diameterCircle2);
     }
 }
 
+// class DisplayShape extends JPanel {
 
+//     private int centerX1, centerY1, radius1, centerX2, centerY2, radius2;
+
+//     public DisplayShape(int centerX1, int centerY1, int radius1, 
+//                         int centerX2, int centerY2, int radius2) {
+                            
+//                             this.centerX1 = centerX1;
+//                             this.centerY1 = centerY1;
+//                             this.radius1 = radius1;
+//                             this.centerX2 = centerX2;
+//                             this.centerY2 = centerY2;
+//                             this.radius2 = radius2;
+//                         }
+                        
+//     public void paint(Graphics g) {
+        
+//         super.paint(g);
+            
+//         // int[] x = {400,500,560,560,500,400,340,340};
+//         // int[] y = {60,60,120,180,240,240,180,120};
+//         //g.setColor(Color.BLUE);
+//         int diameterCircle1 = radius1 * 2;
+//         int diameterCircle2 = radius2 * 2;
+        
+//         g.drawOval(centerX1 - radius1, centerY1 - radius1, diameterCircle1, diameterCircle1);
+//         g.drawOval(centerX2 - radius2, centerY2 - radius2, diameterCircle2, diameterCircle2);
+//     }
+// }
