@@ -16,6 +16,7 @@ class CircleDrawing extends JFrame implements ActionListener {
                    lbCenterX2, lbCenterY2, lbRadius2;
     private JTextField tfCenterX1, tfCenterY1, tfRadius1,tfCenterX2, tfCenterY2, tfRadius2;
     private int centerX1, centerY1, centerX2, centerY2, radius1, radius2; 
+    private int intersect;
 
     public static void main(String[] args) {
        
@@ -115,7 +116,7 @@ class CircleDrawing extends JFrame implements ActionListener {
             add(p1, BorderLayout.NORTH);
             add(p5, BorderLayout.SOUTH);
 
-            
+
         // actionListerner
         bt.addActionListener(this);
     }
@@ -133,10 +134,21 @@ class CircleDrawing extends JFrame implements ActionListener {
             centerY2 = Integer.parseInt(tfCenterY2.getText());
             radius2 = Integer.parseInt(tfRadius2.getText());
 
-            repaint();
+            intersect = circleIntersection(centerX1, centerY1, centerX2, centerY2, radius1, radius2);
+
+            if(intersect == 1 || intersect == 2 ) {
+                System.out.println ( "Circle do not intersect"); 
+
+            } else {
+                System.out.println ( "Circle intersect each other");
+            }
+
+            repaint();    
         }    
     }
 
+
+    @Override
     public void paint(Graphics g) {
         
         super.paint(g);
@@ -146,5 +158,32 @@ class CircleDrawing extends JFrame implements ActionListener {
 
         g.drawOval(centerX1 , centerY1 , diameterCircle1, diameterCircle1);
         g.drawOval(centerX2 , centerY2 , diameterCircle2, diameterCircle2);
+    }
+
+
+     public int circleIntersection(int x1, int y1, int x2,  int y2, int r1, int r2) {
+
+        int intersect;
+
+        // dx and dy are the vertical and horizontal distances
+        int dx = x2 - x1;
+        int dy = y2 - y1;
+        
+        // Determine the straight-line distance between centers.
+        double d = Math.sqrt((dy * dy) + (dx * dx));
+
+        // Circles do not intersect
+        if (d > (r1 + r2)) {
+           intersect = 1; 
+        
+        // One circle is contained inside one another
+        } else if (d < Math.abs(r1 - r2)) {
+            intersect = 2;
+
+        } else {
+            intersect = 3;
+        }
+        
+        return intersect;
     }
 }
