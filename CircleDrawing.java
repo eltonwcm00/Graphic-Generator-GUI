@@ -60,26 +60,26 @@ public class CircleDrawing extends JFrame implements ActionListener {
         p3subp2 = new JPanel();
         p3subp3 = new JPanel();
         p3subp4 = new JPanel();
-        lbTitleP3 = new JLabel("Enter circle 1 info");
-        lbCenterX1 = new JLabel("Center x :");
-        lbCenterY1 = new JLabel("Center y :");
-        lbRadius1 = new JLabel("Radius :  ");
-        tfCenterX1 = new JTextField(5);
-        tfCenterY1 = new JTextField(5);
-        tfRadius1 = new JTextField(5);
-        p3subp.add(lbTitleP3);
-        p3subp2.add(lbCenterX1);
-        p3subp2.add(tfCenterX1);
-        p3subp3.add(lbCenterY1);
-        p3subp3.add(tfCenterY1);
-        p3subp4.add(lbRadius1);
-        p3subp4.add(tfRadius1);
+            lbTitleP3 = new JLabel("Enter circle 1 info");
+            lbCenterX1 = new JLabel("Center x :");
+            lbCenterY1 = new JLabel("Center y :");
+            lbRadius1 = new JLabel("Radius :  ");
+                tfCenterX1 = new JTextField(5);
+                tfCenterY1 = new JTextField(5);
+                tfRadius1 = new JTextField(5);
+            p3subp.add(lbTitleP3);
+            p3subp2.add(lbCenterX1);
+            p3subp2.add(tfCenterX1);
+            p3subp3.add(lbCenterY1);
+            p3subp3.add(tfCenterY1);
+            p3subp4.add(lbRadius1);
+            p3subp4.add(tfRadius1);
         p3.setLayout(new BoxLayout(p3, BoxLayout.Y_AXIS));
         p3.setBorder(border);
-        p3.add(p3subp);
-        p3.add(p3subp2);
-        p3.add(p3subp3);
-        p3.add(p3subp4);
+            p3.add(p3subp);
+            p3.add(p3subp2);
+            p3.add(p3subp3);
+            p3.add(p3subp4);
 
         // panel 4
         p4 = new JPanel();
@@ -87,48 +87,48 @@ public class CircleDrawing extends JFrame implements ActionListener {
         p4subp2 = new JPanel();
         p4subp3 = new JPanel();
         p4subp4 = new JPanel();
-        lbTitleP4 = new JLabel("Enter circle 2 info");
-        lbCenterX2 = new JLabel("Center x :");
-        lbCenterY2 = new JLabel("Center y :");
-        lbRadius2 = new JLabel("Radius :  ");
-        tfCenterX2 = new JTextField(5);
-        tfCenterY2 = new JTextField(5);
-        tfRadius2 = new JTextField(5);
-        bt = new JButton("Redraw Circle");
-        p4subp1.add(lbTitleP4);
-        p4subp2.add(lbCenterX2);
-        p4subp2.add(tfCenterX2);
-        p4subp3.add(lbCenterY2);
-        p4subp3.add(tfCenterY2);
-        p4subp4.add(lbRadius2);
-        p4subp4.add(tfRadius2);
+            lbTitleP4 = new JLabel("Enter circle 2 info");
+            lbCenterX2 = new JLabel("Center x :");
+            lbCenterY2 = new JLabel("Center y :");
+            lbRadius2 = new JLabel("Radius :  ");
+                tfCenterX2 = new JTextField(5);
+                tfCenterY2 = new JTextField(5);
+                tfRadius2 = new JTextField(5);
+            bt = new JButton("Redraw Circle");
+            p4subp1.add(lbTitleP4);
+            p4subp2.add(lbCenterX2);
+            p4subp2.add(tfCenterX2);
+            p4subp3.add(lbCenterY2);
+            p4subp3.add(tfCenterY2);
+            p4subp4.add(lbRadius2);
+            p4subp4.add(tfRadius2);
         p4.setLayout(new BoxLayout(p4, BoxLayout.Y_AXIS));
         p4.setBorder(border);
-        p4.add(p4subp1);
-        p4.add(p4subp2);
-        p4.add(p4subp3);
-        p4.add(p4subp4);
+            p4.add(p4subp1);
+            p4.add(p4subp2);
+            p4.add(p4subp3);
+            p4.add(p4subp4);
 
         // flowlayout to contain p3 and p4
         FlowLayout fLayout = new FlowLayout();
-        flowLayoutPanel = new JPanel();
-        flowLayoutPanel.setLayout(fLayout);
-        flowLayoutPanel.add(p3);
-        flowLayoutPanel.add(p4);
+            flowLayoutPanel = new JPanel();
+                flowLayoutPanel.setLayout(fLayout);
+                flowLayoutPanel.add(p3);
+                flowLayoutPanel.add(p4);
 
         // panel 5
         p5 = new JPanel();
-        bt = new JButton("Redraw Circle");
-        JPanel buttonPane = new JPanel();
-        buttonPane.add(bt);
-        p5.setLayout(new BorderLayout());
-        p5.add(flowLayoutPanel, BorderLayout.CENTER);
-        p5.add(buttonPane, BorderLayout.SOUTH);
+            bt = new JButton("Redraw Circle");
+            JPanel buttonPane = new JPanel();
+                buttonPane.add(bt);
+            p5.setLayout(new BorderLayout());
+                p5.add(flowLayoutPanel, BorderLayout.CENTER);
+                p5.add(buttonPane, BorderLayout.SOUTH);
 
         // frame panel
         setLayout(new BorderLayout());
-        add(p1, BorderLayout.NORTH);
-        add(p5, BorderLayout.SOUTH);
+            add(p1, BorderLayout.NORTH);
+            add(p5, BorderLayout.SOUTH);
 
         // actionListerner
         bt.addActionListener(this);
