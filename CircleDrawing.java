@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,7 +45,10 @@ public class CircleDrawing extends JFrame implements ActionListener {
         addMouseListener(cm);
         addMouseMotionListener(cm);
 
-        Border border = LineBorder.createBlackLineBorder();
+        Border blackline = BorderFactory.createLineBorder(Color.black);
+        Border borderTitle1 = BorderFactory.createTitledBorder(blackline, "1");
+        Border borderTitle2 = BorderFactory.createTitledBorder(blackline,"2");
+       
 
         // panel 1
         p1 = new JPanel();
@@ -75,7 +79,8 @@ public class CircleDrawing extends JFrame implements ActionListener {
             p3subp4.add(lbRadius1);
             p3subp4.add(tfRadius1);
         p3.setLayout(new BoxLayout(p3, BoxLayout.Y_AXIS));
-        p3.setBorder(border);
+        ((TitledBorder) borderTitle1).setTitleJustification(TitledBorder.LEADING);
+        p3.setBorder(borderTitle1);
             p3.add(p3subp);
             p3.add(p3subp2);
             p3.add(p3subp3);
@@ -103,7 +108,8 @@ public class CircleDrawing extends JFrame implements ActionListener {
             p4subp4.add(lbRadius2);
             p4subp4.add(tfRadius2);
         p4.setLayout(new BoxLayout(p4, BoxLayout.Y_AXIS));
-        p4.setBorder(border);
+        ((TitledBorder) borderTitle2).setTitleJustification(TitledBorder.TRAILING);
+        p4.setBorder(borderTitle2);
             p4.add(p4subp1);
             p4.add(p4subp2);
             p4.add(p4subp3);
