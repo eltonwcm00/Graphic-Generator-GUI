@@ -172,7 +172,6 @@ public class CircleDrawing extends JFrame implements ActionListener {
 
         }
     }
-    
 
     @Override
     public void paint(Graphics g) {
