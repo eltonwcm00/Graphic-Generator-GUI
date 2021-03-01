@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import java.awt.event.ActionEvent;
@@ -10,14 +9,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+
 @SuppressWarnings("serial")
 public class CircleDrawing extends JFrame implements ActionListener {
 
     private JButton bt;
-    private JPanel p1, p2, p3, p4, p5, flowLayoutPanel;
+    private JPanel p1, p3, p4, p5, flowLayoutPanel;
     private JPanel p3subp, p3subp2, p3subp3, p3subp4, p4subp1, p4subp2, p4subp3, p4subp4;
     private JLabel lbTitle, lbTitleP3, lbTitleP4, lbCenterX1, lbCenterY1, lbRadius1, lbCenterX2, lbCenterY2, lbRadius2;
     private JTextField tfCenterX1, tfCenterY1, tfRadius1, tfCenterX2, tfCenterY2, tfRadius2;
+    
     public int centerX1, centerY1, centerX2, centerY2;
     public int radius1, radius2;
     
@@ -41,30 +42,28 @@ public class CircleDrawing extends JFrame implements ActionListener {
 
     public CircleDrawing() {
 
+        // Call the class that extends MouseAdapter
         cm = new CircleMoving();
         addMouseListener(cm);
         addMouseMotionListener(cm);
 
+        // Create and setup the border for panel 3 and panel 4
         Border blackline = BorderFactory.createLineBorder(Color.black);
-        Border borderTitle1 = BorderFactory.createTitledBorder(blackline, "1");
-        Border borderTitle2 = BorderFactory.createTitledBorder(blackline,"2");
+        Border borderTitle1 = BorderFactory.createTitledBorder(blackline, " - - - - - - - - - - - - - - - - ");
+        Border borderTitle2 = BorderFactory.createTitledBorder(blackline," - - - - - - - - - - - - - - - - ");
        
-
-        // panel 1
+        // Panel 1
         p1 = new JPanel();
         lbTitle = new JLabel("Two circles intersect ?");
         p1.add(lbTitle);
 
-        // panel 2
-        /********** call paintComponent() ***********/
-
-        // panel 3
+        // Panel 3
         p3 = new JPanel();
         p3subp = new JPanel();
         p3subp2 = new JPanel();
         p3subp3 = new JPanel();
         p3subp4 = new JPanel();
-            lbTitleP3 = new JLabel("Enter circle 1 info");
+            lbTitleP3 = new JLabel("Enter circle 1 info : ");
             lbCenterX1 = new JLabel("Center x :");
             lbCenterY1 = new JLabel("Center y :");
             lbRadius1 = new JLabel("Radius :  ");
@@ -86,13 +85,13 @@ public class CircleDrawing extends JFrame implements ActionListener {
             p3.add(p3subp3);
             p3.add(p3subp4);
 
-        // panel 4
+        // Panel 4
         p4 = new JPanel();
         p4subp1 = new JPanel();
         p4subp2 = new JPanel();
         p4subp3 = new JPanel();
         p4subp4 = new JPanel();
-            lbTitleP4 = new JLabel("Enter circle 2 info");
+            lbTitleP4 = new JLabel("Enter circle 2 info : ");
             lbCenterX2 = new JLabel("Center x :");
             lbCenterY2 = new JLabel("Center y :");
             lbRadius2 = new JLabel("Radius :  ");
@@ -115,14 +114,14 @@ public class CircleDrawing extends JFrame implements ActionListener {
             p4.add(p4subp3);
             p4.add(p4subp4);
 
-        // flowlayout to contain p3 and p4
+        // Flowlayout to wrap the panel 3 and panel 4
         FlowLayout fLayout = new FlowLayout();
             flowLayoutPanel = new JPanel();
                 flowLayoutPanel.setLayout(fLayout);
                 flowLayoutPanel.add(p3);
                 flowLayoutPanel.add(p4);
 
-        // panel 5
+        // Panel 5
         p5 = new JPanel();
             bt = new JButton("Redraw Circle");
             JPanel buttonPane = new JPanel();
@@ -131,7 +130,7 @@ public class CircleDrawing extends JFrame implements ActionListener {
                 p5.add(flowLayoutPanel, BorderLayout.CENTER);
                 p5.add(buttonPane, BorderLayout.SOUTH);
 
-        // frame panel
+        // Frame default panel
         setLayout(new BorderLayout());
             add(p1, BorderLayout.NORTH);
             add(p5, BorderLayout.SOUTH);
@@ -145,6 +144,7 @@ public class CircleDrawing extends JFrame implements ActionListener {
 
         if (e.getSource() == bt) {
 
+            // Get the value from the JTextField
             centerX1 = Integer.parseInt(tfCenterX1.getText());
             centerY1 = Integer.parseInt(tfCenterY1.getText());
             radius1 = Integer.parseInt(tfRadius1.getText());
@@ -153,10 +153,12 @@ public class CircleDrawing extends JFrame implements ActionListener {
             centerY2 = Integer.parseInt(tfCenterY2.getText());
             radius2 = Integer.parseInt(tfRadius2.getText());
 
+            // Call the circleIntersection() that return back the intersection points of the circles
             intersect = circleIntersection(centerX1, centerY1, centerX2, centerY2, radius1, radius2);
 
             String interLabel;
 
+            // If the circles are either contained inside one another or do not intersect, set the label title based on the condition
             if (intersect == 1 || intersect == 2) {
                 interLabel = "No";
 
@@ -170,6 +172,7 @@ public class CircleDrawing extends JFrame implements ActionListener {
 
         }
     }
+    
 
     @Override
     public void paint(Graphics g) {
@@ -179,8 +182,10 @@ public class CircleDrawing extends JFrame implements ActionListener {
         int diameterCircle1 = radius1 * 2;
         int diameterCircle2 = radius2 * 2;
 
+        // Draw circle 1 and circle 2
         g.drawOval(centerX1, centerY1, diameterCircle1, diameterCircle1);
         g.drawOval(centerX2, centerY2, diameterCircle2, diameterCircle2);
+
     }
 
     public int circleIntersection(int x1, int y1, int x2, int y2, int r1, int r2) {
@@ -202,6 +207,7 @@ public class CircleDrawing extends JFrame implements ActionListener {
         } else if (d < Math.abs(r1 - r2)) {
             intersect = 2;
 
+        // Circles do intersect each other
         } else {
             intersect = 3;
         }
@@ -217,6 +223,7 @@ public class CircleDrawing extends JFrame implements ActionListener {
             isCircle1Clicked = (centerX1 - cm.getX()) * (centerX1 - cm.getX()) + (centerY1 - cm.getY()) * 
                                (centerY1 - cm.getY()) < radius1 * radius1;
 
+            // Check if the circle2 is being clicked
             isCircle2Clicked = (centerX2 - cm.getX()) * (centerX2 - cm.getX()) + (centerY2 - cm.getY()) * 
                                (centerY2 - cm.getY()) < radius2 * radius2;
         }
@@ -233,12 +240,13 @@ public class CircleDrawing extends JFrame implements ActionListener {
                 centerX1 = x1 + radius1;
                 centerY1 = y1 + radius1;
 
-                repaint();
-
                 System.out.println("Circle 1 coordinate : " + centerX1 + " , " + centerY1);
                 
+                // Set the latest value of coordinate x-y circle 1
                 tfCenterX1.setText(String.valueOf(centerX1));
                 tfCenterY1.setText(String.valueOf(centerY1));
+
+                repaint();
             }
 
             if (isCircle2Clicked) {
@@ -247,16 +255,17 @@ public class CircleDrawing extends JFrame implements ActionListener {
                 x2 = cm.getX() - dx;
                 y2 = cm.getY() - dy;
 
-                // New coordinate of the circle1
+                // New coordinate of the circle2
                 centerX2 = x2 + radius2;
                 centerY2 = y2 + radius2;
 
-                repaint();
-
                 System.out.println("Circle 2 coordinate : " + centerX2 + " , " + centerY2);
 
+                // Set the latest value of coordinate x-y circle 2
                 tfCenterX2.setText(String.valueOf(centerX2));
                 tfCenterY2.setText(String.valueOf(centerY2));
+
+                repaint();
             }
         }
 
