@@ -230,6 +230,9 @@ public class CircleDrawing extends JFrame implements ActionListener {
                 repaint();
 
                 System.out.println("Circle 1 coordinate : " + centerX1 + " , " + centerY1);
+                
+                tfCenterX1.setText(String.valueOf(centerX1));
+                tfCenterY1.setText(String.valueOf(centerY1));
             }
 
             if (isCircle2Clicked) {
@@ -245,6 +248,9 @@ public class CircleDrawing extends JFrame implements ActionListener {
                 repaint();
 
                 System.out.println("Circle 2 coordinate : " + centerX2 + " , " + centerY2);
+
+                tfCenterX2.setText(String.valueOf(centerX2));
+                tfCenterY2.setText(String.valueOf(centerY2));
             }
         }
 
